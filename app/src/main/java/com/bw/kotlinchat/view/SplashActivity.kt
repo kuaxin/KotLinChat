@@ -1,16 +1,12 @@
 package com.bw.kotlinchat.view
 
 import android.animation.ObjectAnimator
-import android.content.Intent
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
 import android.widget.ImageView
 import com.bw.kotlinchat.BaseActivity
 import com.bw.kotlinchat.LoginActivity
 import com.bw.kotlinchat.MainActivity
 import com.bw.kotlinchat.R
 import com.bw.kotlinchat.presenter.SplashPresenterImpl
-import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
 class SplashActivity : BaseActivity(),SplashView {

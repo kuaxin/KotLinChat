@@ -1,8 +1,12 @@
 package com.bw.kotlinchat
 
+import android.view.KeyEvent
+import android.widget.TextView
 import android.widget.Toast
 import com.bw.kotlinchat.contract.LoginContract
+import com.bw.kotlinchat.presenter.LoginPresenter
 import kotlinx.android.synthetic.main.activity_login.*
+import org.jetbrains.anko.toast
 
 /**
  * Create by Rgx on 2019/4/11 10:37
@@ -10,7 +14,7 @@ import kotlinx.android.synthetic.main.activity_login.*
  */
 class LoginActivity:BaseActivity(),LoginContract.View {
 
-
+    val presenter = LoginPresenter(this);
     override fun setLayout(): Int {
         return R.layout.activity_login
     }
@@ -18,6 +22,20 @@ class LoginActivity:BaseActivity(),LoginContract.View {
     override fun init() {
         super.init()
 
+        btn_login.setOnClickListener{login()}
+        et_pwd.setOnEditorActionListener { v, actionId, event ->
+            login()
+            true
+        }
+
+
+    }
+
+    private fun login(){
+        val username = et_username.text.toString().trim();
+        val pwd = et_pwd.text.toString().trim();
+
+        presenter.login(username,pwd)
 
     }
 
@@ -36,12 +54,11 @@ class LoginActivity:BaseActivity(),LoginContract.View {
     override fun loginSuccess() {
         dismissProgressDialog()
         startActivity1(MainActivity().javaClass,true);
-
     }
 
     override fun loginFail() {
         dismissProgressDialog()
-        Toast.makeText(this,"登陆失败",Toast.LENGTH_LONG).show();
+        toast("登陆失败")
     }
 
 
