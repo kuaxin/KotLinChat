@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">KotLinChat</string>
     <string name="username">请输入用户名</string>
+    <string name="username_error">用户名必须3-20位,首字母英文</string>
 </resources>

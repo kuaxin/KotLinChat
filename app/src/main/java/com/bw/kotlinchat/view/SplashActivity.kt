@@ -10,7 +10,6 @@ import com.bw.kotlinchat.LoginActivity
 import com.bw.kotlinchat.MainActivity
 import com.bw.kotlinchat.R
 import com.bw.kotlinchat.presenter.SplashPresenterImpl
-import com.bw.kotlinchat.util.ToastUtil
 
 class SplashActivity : BaseActivity(),SplashView {
     override fun setLayout(): Int {

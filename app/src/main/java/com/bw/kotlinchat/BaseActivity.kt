@@ -1,10 +1,11 @@
 package com.bw.kotlinchat
 
+import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
-import com.bw.kotlinchat.util.ToastUtil
+import com.bw.kotlinchat.util.toast
 import kotlin.reflect.KClass
 
 
@@ -13,6 +14,11 @@ import kotlin.reflect.KClass
  * Description:
  */
 abstract class BaseActivity: AppCompatActivity() {
+
+    val progressDialog by lazy {
+        ProgressDialog(this)
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +34,7 @@ abstract class BaseActivity: AppCompatActivity() {
     }
 
     fun showToast(msg:String){
-        ToastUtil.showToast(this,msg);
+        msg.toast(this)
     }
 
 
@@ -42,4 +48,12 @@ abstract class BaseActivity: AppCompatActivity() {
     }
 
 
+    fun showProgressDialog(msg:String){
+        progressDialog.setMessage(msg);
+        progressDialog.show()
+    }
+
+    fun dismissProgressDialog(){
+        progressDialog.dismiss()
+    }
 }

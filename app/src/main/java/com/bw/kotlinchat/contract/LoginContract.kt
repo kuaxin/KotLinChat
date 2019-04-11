@@ -10,7 +10,7 @@ interface LoginContract {
         fun login(userName:String,pwd:String)
     }
 
-    interface LoginView{
+    interface View{
         fun userNameError()
         fun pwdError()
         fun loginStaus()
