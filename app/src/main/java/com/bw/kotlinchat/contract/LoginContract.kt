@@ -10,5 +10,11 @@ interface LoginContract {
         fun login(userName:String,pwd:String)
     }
 
-
+    interface LoginView{
+        fun userNameError()
+        fun pwdError()
+        fun loginStaus()
+        fun loginSuccess()
+        fun loginFail()
+    }
 }
