@@ -10,6 +10,7 @@ import android.widget.Toast
 import com.bw.kotlinchat.contract.LoginContract
 import com.bw.kotlinchat.presenter.LoginPresenter
 import kotlinx.android.synthetic.main.activity_login.*
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 import java.util.jar.Manifest
 
@@ -28,12 +29,11 @@ class LoginActivity:BaseActivity(),LoginContract.View {
         super.init()
 
         btn_login.setOnClickListener{login()}
+        tv_newuser.setOnClickListener { startActivity<RegistActivity>() }
         et_pwd.setOnEditorActionListener { v, actionId, event ->
             login()
             true
         }
-
-
     }
 
     private fun login(){
@@ -72,7 +72,7 @@ class LoginActivity:BaseActivity(),LoginContract.View {
     }
 
     override fun userNameError() {
-        et_username.error = getString(R.string.username_error)
+        et_username.error = getString(R.string.user_name_error)
     }
 
     override fun pwdError() {

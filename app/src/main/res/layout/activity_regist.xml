@@ -30,6 +30,14 @@
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="50dp" />
+    <EditText
+            android:inputType="numberPassword"
+            android:imeOptions="actionGo"
+            android:id="@+id/et_pw_second"
+            android:hint="确认密码"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
     
     <Button
         android:id="@+id/btn_regist"
