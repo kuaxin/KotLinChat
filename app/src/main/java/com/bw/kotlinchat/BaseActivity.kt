@@ -1,10 +1,12 @@
 package com.bw.kotlinchat
 
 import android.app.ProgressDialog
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
+import android.view.inputmethod.InputMethodManager
 import com.bw.kotlinchat.util.toast
 import kotlin.reflect.KClass
 
@@ -17,6 +19,10 @@ abstract class BaseActivity: AppCompatActivity() {
 
     val progressDialog by lazy {
         ProgressDialog(this)
+    }
+
+    val inputMethodManager by lazy{
+        getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     }
 
 
@@ -56,4 +62,10 @@ abstract class BaseActivity: AppCompatActivity() {
     fun dismissProgressDialog(){
         progressDialog.dismiss()
     }
+
+    fun hideSoftKeyBorad(){
+        inputMethodManager.hideSoftInputFromWindow(currentFocus.windowToken,0)
+    }
+
+
 }
