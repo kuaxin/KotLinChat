@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">KotLinChat</string>
+    <string name="username">请输入用户名</string>
+</resources>
