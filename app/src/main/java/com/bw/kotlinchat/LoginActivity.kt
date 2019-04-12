@@ -86,6 +86,7 @@ class LoginActivity:BaseActivity(),LoginContract.View {
     override fun loginSuccess() {
         dismissProgressDialog()
         startActivity1(MainActivity().javaClass,true);
+        finish()
     }
 
     override fun loginFail() {

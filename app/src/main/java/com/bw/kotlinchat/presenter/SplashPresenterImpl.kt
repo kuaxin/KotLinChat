@@ -7,13 +7,9 @@ import com.hyphenate.chat.EMClient
  * Create by Rgx on 2019/4/10 16:52
  * Description:
  */
-class SplashPresenterImpl : SplashPersenter {
+class SplashPresenterImpl(val splashView:SplashView) : SplashPersenter {
 
-    private lateinit var splashView:SplashView;
 
-    constructor(splashView: SplashView) {
-        this.splashView = splashView
-    }
 
 
     override fun isLogined() {

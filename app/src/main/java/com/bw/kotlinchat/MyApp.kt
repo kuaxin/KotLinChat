@@ -6,9 +6,7 @@ import com.hyphenate.chat.EMOptions
 import android.app.ActivityManager
 import android.content.Context
 import android.content.pm.PackageManager
-
-
-
+import cn.bmob.v3.Bmob
 
 
 /**
@@ -19,6 +17,8 @@ class MyApp: Application() {
 
     override fun onCreate() {
         super.onCreate()
+        Bmob.initialize(this, "44cdd5eddf354440b84ebd3ea0cf5b95");
+
         var options:EMOptions = EMOptions();
 // 默认添加好友时，是不需要验证的，改成需要验证
         options.setAcceptInvitationAlways(false);
