@@ -11,7 +11,8 @@ import com.hyphenate.chat.EMClient
  * Create by Rgx on 2019/4/11 13:57
  * Description:
  */
-class LoginPresenter(val view:LoginContract.View):LoginContract.LoginPresenter {
+class LoginPresenter
+    (val view:LoginContract.View):LoginContract.LoginPresenter {
     override fun login(userName: String, pwd: String) {
         if(userName.checkUserName()){
             if(pwd.checkPwd()){

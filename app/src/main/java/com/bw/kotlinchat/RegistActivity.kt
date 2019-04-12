@@ -13,7 +13,11 @@ import org.jetbrains.anko.toast
  * Description:
  */
 class RegistActivity:BaseActivity(),RegistContract.View {
-    val presenter = RegisterPersenter(this);
+    override fun alreadyRegiest() {
+        toast("该用户已经注册")
+    }
+
+    val presenter = RegisterPersenter(this,this);
 
     override fun init() {
         super.init()
@@ -43,6 +47,7 @@ class RegistActivity:BaseActivity(),RegistContract.View {
 
     override fun confirmPwdError() {
         confirmPassword.error = getString(R.string.confirm_password_error)
+
     }
 
     override fun regiestStaus() {
