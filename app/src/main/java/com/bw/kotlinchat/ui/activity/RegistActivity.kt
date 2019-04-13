@@ -1,8 +1,6 @@
-package com.bw.kotlinchat
+package com.bw.kotlinchat.ui.activity
 
-import android.view.KeyEvent
-import android.view.View
-import android.widget.TextView
+import com.bw.kotlinchat.R
 import com.bw.kotlinchat.contract.RegistContract
 import com.bw.kotlinchat.presenter.RegisterPersenter
 import kotlinx.android.synthetic.main.activity_register.*
@@ -12,8 +10,9 @@ import org.jetbrains.anko.toast
  * Create by Rgx on 2019/4/11 15:47
  * Description:
  */
-class RegistActivity:BaseActivity(),RegistContract.View {
+class RegistActivity: BaseActivity(),RegistContract.View {
     override fun alreadyRegiest() {
+        dismissProgressDialog()
         toast("该用户已经注册")
     }
 

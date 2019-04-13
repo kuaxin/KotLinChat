@@ -2,9 +2,9 @@ package com.bw.kotlinchat.view
 
 import android.animation.ObjectAnimator
 import android.widget.ImageView
-import com.bw.kotlinchat.BaseActivity
-import com.bw.kotlinchat.LoginActivity
-import com.bw.kotlinchat.MainActivity
+import com.bw.kotlinchat.ui.activity.BaseActivity
+import com.bw.kotlinchat.ui.activity.LoginActivity
+import com.bw.kotlinchat.ui.activity.MainActivity
 import com.bw.kotlinchat.R
 import com.bw.kotlinchat.presenter.SplashPresenterImpl
 import org.jetbrains.anko.toast

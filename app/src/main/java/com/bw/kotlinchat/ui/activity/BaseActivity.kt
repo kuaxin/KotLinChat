@@ -1,4 +1,4 @@
-package com.bw.kotlinchat
+package com.bw.kotlinchat.ui.activity
 
 import android.app.ProgressDialog
 import android.content.Context
