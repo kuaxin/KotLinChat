@@ -28,10 +28,13 @@ class FragmentFactory private constructor(){
 
     }
 
-    fun getFragment(tabId:Int):Fragment{
-        when(tabId){
-            R.id.conversation_tab
+    fun getFragment(tabId:Int):Fragment?{
 
+        when(tabId){
+            R.id.tab1_contacts -> return contactsf
+            R.id.tab1_conversation -> return conversionf
+            R.id.tab1_dynamic -> return dynamicf
         }
+        return null
     }
 }

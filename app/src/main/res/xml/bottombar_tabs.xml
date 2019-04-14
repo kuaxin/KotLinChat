@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <tabs>
     <tab
-        id="@+id/conversation_tab"
+        id="@+id/tab_conversation"
         icon="@mipmap/ic_conversation"
         title="@string/message" />
     <tab

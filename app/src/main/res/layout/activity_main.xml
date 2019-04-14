@@ -15,13 +15,17 @@
             android:layout_weight="1">
     </FrameLayout>
 
-    <com.roughike.bottombar.BottomBar
-            android:id="@+id/bottomBar"
+
+
+    <android.support.design.widget.BottomNavigationView
+            android:id="@+id/bottomNaBar"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            app:bb_tabXmlResource="@xml/bottombar_tabs"
-            app:bb_activeTabColor="@color/qq_blue">
-    </com.roughike.bottombar.BottomBar>
+            app:itemIconTint="@drawable/slector_tab_bar"
+            app:itemTextColor="@drawable/slector_tab_bar"
+            app:menu="@menu/menu">
+
+    </android.support.design.widget.BottomNavigationView>
 
 
 

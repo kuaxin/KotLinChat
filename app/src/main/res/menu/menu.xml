@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+            android:id="@+id/tab1_conversation"
+            android:enabled="true"
+            app:showAsAction="ifRoom"
+            android:icon="@mipmap/ic_conversation"
+            android:title="@string/message"
+    ></item>
+    <item
+            android:id="@+id/tab1_contacts"
+            android:enabled="true"
+            app:showAsAction="ifRoom"
+            android:icon="@mipmap/ic_contact"
+            android:title="@string/contact"
+    ></item>
+    <item
+            android:id="@+id/tab1_dynamic"
+            android:enabled="true"
+            app:showAsAction="ifRoom"
+            android:icon="@mipmap/ic_dynamic"
+            android:title="@string/dynamic"
+    ></item>
+
+</menu>
