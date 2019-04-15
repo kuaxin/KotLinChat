@@ -1,13 +1,10 @@
 package com.bw.kotlinchat.ui.activity
 
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
-import android.support.design.internal.BottomNavigationItemView
-import android.support.design.widget.BottomNavigationView
-import android.support.design.widget.NavigationView
-import android.view.MenuItem
+
 import com.bw.kotlinchat.R
+import com.bw.kotlinchat.factory.FragmentFactory
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : BaseActivity() {
     override fun setLayout(): Int {
@@ -16,16 +13,13 @@ class MainActivity : BaseActivity() {
 
     override fun init() {
         super.init()
-        bottomNaBar.setOnNavigationItemSelectedListener(object : BottomNavigationView.OnNavigationItemSelectedListener{
-            override fun onNavigationItemSelected(p0: MenuItem): Boolean {
-                when(p0.itemId){
+        bottomNaBar.setOnNavigationItemSelectedListener { p0 ->
+            val beginTransaction = supportFragmentManager.beginTransaction();
+            beginTransaction.replace(R.id.fragment_frame, FragmentFactory.instance.getFragment(p0.itemId)!!);
+            beginTransaction.commit()
 
-                }
-                return true;
-            }
-
-        })
-
+            true;
+        }
 
 
     }

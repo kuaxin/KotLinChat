@@ -30,7 +30,10 @@
 
         </activity>
         <activity android:name=".view.SplashActivity" android:theme="@style/AppTheme.FullScreen">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
         <!-- 设置环信应用的AppKey -->
         <meta-data
@@ -55,14 +58,15 @@
                 <action android:name="android.intent.action.USER_PRESENT"/>
             </intent-filter>
         </receiver>
-
+        <provider
+                android:name="cn.bmob.v3.util.BmobContentProvider"
+                android:authorities="com.bw.kotlinchat.BmobContentProvider">
+        </provider>
         <activity android:name=".ui.activity.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+
         </activity>
         <activity android:name=".ui.activity.RegistActivity"/>
+        <activity android:name=".ui.activity.ChatActivity"/>
     </application>
 
 </manifest>

@@ -76,11 +76,11 @@ class LoginActivity: BaseActivity(),LoginContract.View {
         if(hasWritePermission()){
             val username = et_username.text.toString().trim();
             val pwd = et_pwd.text.toString().trim();
-            if(!TextUtils.isEmpty(username)){
-                addDanmaku(username,true);
-                et_username.setText("")
-                et_pwd.setText("")
-            }
+//            if(!TextUtils.isEmpty(username)){
+//                addDanmaku(username,true);
+//                et_username.setText("")
+//                et_pwd.setText("")
+//            }
             presenter.login(username,pwd)
         }else{
             applyWritePermission();
@@ -125,6 +125,7 @@ class LoginActivity: BaseActivity(),LoginContract.View {
     override fun loginSuccess() {
         dismissProgressDialog()
         startActivity<MainActivity>()
+        finish()
     }
 
 
