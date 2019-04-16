@@ -1,20 +1,20 @@
 package com.bw.kotlinchat.ui.fragment
 
-import android.support.annotation.UiThread
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.View
 import com.bw.kotlinchat.R
 import com.bw.kotlinchat.adapter.ContactAdapter
 import com.bw.kotlinchat.adapter.EMCContactAdapter
 import com.bw.kotlinchat.contract.ContartContract
 import com.bw.kotlinchat.presenter.ContartPresenter
-import com.bw.kotlinchat.util.toast
+import com.bw.kotlinchat.ui.activity.AddFriendActivity
+import com.bw.kotlinchat.widget.SlideBar
 import kotlinx.android.synthetic.main.fragment_contacts.*
 import kotlinx.android.synthetic.main.header.*
 import org.jetbrains.anko.toast
-import com.hyphenate.EMContactListener
 import com.hyphenate.chat.EMClient
-
+import org.jetbrains.anko.startActivity
 
 
 /**
@@ -27,12 +27,12 @@ class ContactsFragment:BaseFragment(),ContartContract.View {
     val persenter = ContartPresenter(this);
 
     override fun contartDataSuccess() {
-        swipeRefreshLayout.isRefreshing = false
+        swipeRefreshLayout!!.isRefreshing = false
         recyclerView.adapter?.notifyDataSetChanged()
     }
 
     override fun contartDataError() {
-        swipeRefreshLayout.isRefreshing = false
+        swipeRefreshLayout!!.isRefreshing = false
         context?.toast(R.string.load_contacts_failed)
 
     }
@@ -46,7 +46,13 @@ class ContactsFragment:BaseFragment(),ContartContract.View {
 
         tv_title.text = getString(R.string.contact)
         iv_right.visibility = View.VISIBLE
-        swipeRefreshLayout.apply {8
+        iv_right.setOnClickListener {
+            context?.startActivity<AddFriendActivity>()
+        }
+
+
+
+        swipeRefreshLayout.apply {
             setColorSchemeResources(R.color.qq_blue)
             isRefreshing = true
             setOnRefreshListener { persenter.getContartData() }
@@ -66,7 +72,37 @@ class ContactsFragment:BaseFragment(),ContartContract.View {
             }
         })
 
+
+        slideBar!!.onMoveSlideLister = object :SlideBar.OnMoveSlideLister{
+            override fun getSlideIndex(firstLetter: String) {
+                section.text = firstLetter
+                section.visibility = View.VISIBLE
+                context?.toast(persenter.contartListItems.size.toString())
+                val position = getPosition(firstLetter)
+                recyclerView.smoothScrollToPosition(position)
+
+            }
+            override fun onSlideFinish() {
+                section.visibility = View.GONE
+            }
+        }
+
         persenter.getContartData()
 
     }
+
+    private fun getPosition(firstLetter: String): Int {
+
+        val binarySearch = persenter.contartListItems.binarySearch {
+                it -> it.firstLetter.minus(firstLetter[0])
+            Log.v("RGX",it.firstLetter.toString())
+        }
+        if(binarySearch < 0){
+            return 0;
+        }else {
+            return binarySearch
+        }
+
+    }
+
 }

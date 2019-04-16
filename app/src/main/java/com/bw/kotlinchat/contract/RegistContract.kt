@@ -7,7 +7,7 @@ import org.jetbrains.anko.toast
 interface RegistContract {
 
 
-    interface Persenter{
+    interface Persenter:BasePresenter{
         fun register(userName:String,pwd:String,confirmPwd:String)
     }
 
