@@ -11,7 +11,7 @@ import cn.bmob.v3.Bmob
 
 /**
  * Create by Rgx on 2019/4/10 16:41
- * Description:
+ * Description:张文强到此一游
  */
 class MyApp: Application() {
 
